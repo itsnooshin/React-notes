@@ -1,0 +1,24 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+button {
+  border: none;
+  background-color: blue;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+}
+.error-text{
+  color: red;
+}
