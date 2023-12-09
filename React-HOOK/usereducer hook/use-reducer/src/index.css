@@ -1,24 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  height: 60vh;
+  /* height: 60vh; */
+  margin-top: 4rem;
 }
 
 button {
-  border: none;
-  background-color: blue;
-  font-size: 20px;
-  color: white;
+  font-size: 16px;
+
   cursor: pointer;
+  margin-left: 1rem;
+  /* display: block;
+  margin-top: 2rem; */
 }
 .btn {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 20px;
   width: 300px;
 }
-.error-text{
+.error-text {
   color: red;
+}
+input,
+button {
+  font-family: inherit;
+  /* border: none; */
+}
+input {
+  /* background-color: rgb(194, 193, 193); */
+  /* padding: 1rem 1rem; */
+  /* color: red; */
+}
+input::placeholder {
+  /* color: #fff; */
+  font-family: inherit;
+}
+
+ul {
+  margin-left: 0;
+}
+
+li {
+  list-style: none;
+  margin-top: 0.7rem;
+}
+
+label input[type='checkbox'] {
+  margin-right: 1rem;
+}
+h1 {
+  margin-bottom: 2rem;
+}
+button {
+  background-color: black;
+  color: white;
+  padding: 1rem 1rem;
+}
+.addTask {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.addTask input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid black;
+}
+.addTask input:focus {
+  outline: none;
+}
+.addTask button {
+  margin: 0;
+}
+
+.task-list p {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
+.list-item {
+  padding: 0.5rem 0.5rem;
+  border: 2px solid black;
+  border-radius: 12px;
+  position: relative;
+}
+
+
+
+
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btn-edit{
+ position: absolute;
+ left: 63%;
+ top: 13%;
 }

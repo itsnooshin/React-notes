@@ -2,13 +2,15 @@ import { useReducer } from 'react';
 /* const [state, dispatch] = useReducer(reducer, initialArg, init?) */
 
 const initalState = {
-  count: 0,
-  error: null,
+  // count: 0,
+  // error: null,
+  age: 42,
+  name: 'Taylor',
 };
 function reducer(state, action) {
   switch (action.type) {
-    case 'inc':
-      return { ...state, count: state.count + 1 };
+    // case 'inc':
+    //   return { ...state, age: state.count + 1 };
     case 'dec': {
       const newCount = state.count - 1;
       const isError = newCount < 0;
@@ -19,6 +21,11 @@ function reducer(state, action) {
       };
     }
 
+    case 'change_name':
+      return { ...state, name: action.name };
+    case 'inc':
+      return { ...state, age: state.age + 1 };
+
     default:
       return state;
   }
@@ -27,16 +34,28 @@ function reducer(state, action) {
 function App() {
   const [state, dispatch] = useReducer(reducer, initalState);
 
-  const { count } = state;
+  const { age, name } = state;
 
   return (
     <div>
-      <p>Count :{count}</p>
-      {state.error && <p className="error-text">{state.error}</p>}
+      {/* <p>Count :{count}</p> */}
+      <input
+        type="text"
+        value={name}
+        onChange={(e) =>
+          dispatch({ type: 'change_name', name: e.target.value })
+        }
+      />
+      {/* {state.error && <p className="error-text">{state.error}</p>}
       <div className="btn">
         <button onClick={() => dispatch({ type: 'inc' })}>+</button>
         <button onClick={() => dispatch({ type: 'dec' })}>-</button>
-      </div>
+      </div> */}
+      <button onClick={() => dispatch({ type: 'inc' })}>Increment age</button>
+      <p>
+        {' '}
+        Hello, {state.name} is {state.age} years old
+      </p>
     </div>
   );
 }
