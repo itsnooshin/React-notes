@@ -69,9 +69,47 @@ that's where a process called reconciliation comes into play.
  so reconciliation is basically deciding exactlywhich DOM elements need to be inserted, deleted or updated in order to reflect the latest state changes.
 
  ![Alt text](image-6.png)
+ <br/>
 reconciliation is processed by a reconciler and we can say that the reconciler really is the engine of React. called Fiber
 
 ### what is Fiber :
+during the initial render of the application,Fiber takes the entire React element tree, so the virtual DOM, and based on it builds yet another tree which is the Fiber tree.
+
+Fiber tree: internal tree that has a “fiber” for each component instance and DOM element
+
+in virtual DOM each time state changes a new vertiual dom create but in fiber tree not created on every render. This allows for better performance and smoother user experiences. So the Fiber tree is never destroyed. It just keeps changing again and again.
+this makes Fibers the perfect place for keeping track of things like the current component state, props,side effects, list of used hooks and more. also each Fiber also contains a queue of work to do
+like updating state, updating refs, running registered side effects, performing DOM updates and so on.
+👉 Work can be done asynchronously 
+-👉  The update process is broken into small tasks. These tasks can be arranged by importance, stopped, repeated, or ignored.
+
+-👉 Enables concurrent features like Suspense or transitions
+
+-👉 Long renders won’t block JS engine
+
+## Let's reconciliation in action
+let's take the virtual DOM and the corresponding Fiber tree from the last slide
+![Alt text](image-7.png)
+![Alt text](image-8.png)
+
+<br/>
+there is a piece of state called showModal, which is currently set to true  let's say now that the state is updated to false. This will then trigger a re-render which will create a new virtual DOM.
+and all its children are actually gone because they are no longer displayed when showModal is not true.
+
+![Alt text](image-9.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
