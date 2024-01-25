@@ -1,17 +1,40 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createCustomer } from './CustomerRedux';
 function CreateCustomer() {
+  const [fullName, setFullName] = useState('');
+  const [nationalID, setNationalID] = useState('');
+
+  const dispatch = useDispatch();
+
+  function handleCreate() {
+    if (!fullName || !nationalID) return;
+    dispatch(createCustomer(fullName, nationalID));
+    setFullName('');
+    setNationalID(' ');
+  }
+
   return (
     <div>
       <h2>Create new customer</h2>
       <div className="inputs">
         <div>
-          <label htmlFor="">Customer full name</label>
-          <input type="text" />
+          <label>Customer full name</label>
+          <input
+            type="text"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+          />
         </div>
         <div>
-          <label htmlFor="">National ID</label>
-          <input type="text" />
+          <label>National ID</label>
+          <input
+            type="text"
+            value={nationalID}
+            onChange={(e) => setNationalID(e.target.value)}
+          />
         </div>
-        <button>Create New Customer</button>
+        <button onClick={handleCreate}>Create New Customer</button>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import accountReducer from './feature/account/AccountRedux';
 import customerReducer from './feature/customers/CustomerRedux';
+import { thunk } from 'redux-thunk';
 // Like useReducer we should create a initualState
 
 // store
@@ -10,6 +11,4 @@ const rootReducer = combineReducers({
   customer: customerReducer,
 });
 
-const store = createStore(rootReducer);
-
-export default store;
+const store = createStore(rootReducer , applyMiddleware(thunk));
