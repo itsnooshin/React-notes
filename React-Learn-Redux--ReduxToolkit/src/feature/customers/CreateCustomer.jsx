@@ -11,7 +11,7 @@ function CreateCustomer() {
     if (!fullName || !nationalID) return;
     dispatch(createCustomer(fullName, nationalID));
     setFullName('');
-    setNationalID(' ');
+    setNationalID('');
   }
 
   return (
