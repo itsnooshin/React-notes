@@ -16,8 +16,7 @@ function AcoountOperations() {
     loan: currentLoan,
     loanPurpose: currentLoanPurpose,
   } = useSelector((state) => state.account);
-  console.log();
-  // console.log(x);
+
   function handleDeposit() {
     if (!depositAmount) return;
     dispatch(deposite(depositAmount, currency));
